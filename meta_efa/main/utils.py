@@ -1,6 +1,6 @@
 import logging
-import time
 import requests
+from datetime import datetime
 
 from main.models import Station
 import csv
@@ -46,11 +46,6 @@ def get_EFA_from_VVS(station_id):
     name_dm = station_id
     mode = 'direct'
     dmLineSelectionAll = 1
-    itdDateYear = int(time.strftime('%y'))
-    itdDateMonth = int(time.strftime('%m'))
-    itdDateDay = int(time.strftime('%d'))
-    itdTimeHour = int(time.strftime('%H'))
-    itdTimeMinute = int(time.strftime('%M'))
     useRealtime = 1
     outputFormat = 'json'
 
@@ -71,11 +66,12 @@ def get_EFA_from_VVS(station_id):
     url += '&name_dm={}'.format(name_dm)
     url += '&mode={}'.format(mode)
     url += '&dmLineSelectionAll={:d}'.format(dmLineSelectionAll)
-    url += '&itdDateYear={:d}'.format(itdDateYear)
-    url += '&itdDateMonth={:d}'.format(itdDateMonth)
-    url += '&itdDateDay={:d}'.format(itdDateDay)
-    url += '&itdTimeHour={:d}'.format(itdTimeHour)
-    url += '&itdTimeMinute={:d}'.format(itdTimeMinute)
+
+    url += ('&itdDateYear={0:%Y}&itdDateMonth={0:%m}&itdDateDay={0:%d}' +
+            '&itdTimeHour={0:%H}&itdTimeMinute={0:%M}').format(
+                datetime.now()
+            )
+
     url += '&useRealtime={:d}'.format(useRealtime)
     url += '&outputFormat={}'.format(outputFormat)
 

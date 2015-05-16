@@ -4,7 +4,7 @@ from main.models import Station
 import csv
 
 
-def populate_stations(path='../../../vvs_data/HaltestellenVVS_simplified_utf8_stationID.csv'):
+def populate_stations(path='/opt/code/vvs_data/HaltestellenVVS_simplified_utf8_stationID.csv'):
     with open(path, 'r') as f:
         reader = csv.reader(f, delimeter=',')
         # skip first row

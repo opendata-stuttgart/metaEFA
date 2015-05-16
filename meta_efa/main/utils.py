@@ -3,7 +3,8 @@ import requests
 from datetime import datetime
 
 from main.models import Station
-import csv, json
+import csv
+import json
 
 
 def populate_stations(path='/opt/code/vvs_data/HaltestellenVVS_simplified_utf8_stationID.csv'):
@@ -78,12 +79,13 @@ def get_EFA_from_VVS(station_id):
     efa = requests.get(url).json()
     return efa
 
+
 def parse_efa(efa):
     parsedDepartures = []
 
     if not efa["departureList"]:
         return parsedDepartures
-    
+
     for departure in efa["departureList"]:
         stopName = departure["stopName"]
         number = departure["servingLine"]["number"]
@@ -91,10 +93,10 @@ def parse_efa(efa):
         realDateTime = departure["realDateTime"]
 
         departureObject = {
-            "stopName" : stopName,
+            "stopName": stopName,
             "number": number,
             "direction": direction,
-            "departureTime": realDateTime          
+            "departureTime": realDateTime
         }
 
         parsedDepartures.append(departureObject)

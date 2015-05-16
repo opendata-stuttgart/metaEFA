@@ -1,25 +1,21 @@
-from meta_efa.models import Stations
-import csv
-datapath = ".././vvs_data/HaltestellenVVS_simplified_utf8_stationID.csv"
-LOG = True
+import logging
 
-def populate_stations():
-    with open(datapath, 'r') as f:
+from main.models import Station
+import csv
+
+
+def populate_stations(path='../../../vvs_data/HaltestellenVVS_simplified_utf8_stationID.csv'):
+    with open(path, 'r') as f:
         reader = csv.reader(f, delimeter=',')
-        #skip first row
+        # skip first row
         next(reader, None)
         for row in reader:
-            obj, created = Stations.objects.update_or_create(
+            obj, created = Station.objects.update_or_create(
                 station_id=row[0],
                 name=row[1],
                 full_name=row[2])
 
             if created:
-                log("Created station %s" % row[0])
+                logging.info("Created station %s" % row[0])
             else:
-                log("Updated station %s" % row[0])
-
-
-def log(message):
-    if LOG:
-        print(message)
+                logging.info("Updated station %s" % row[0])

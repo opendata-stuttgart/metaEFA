@@ -55,28 +55,29 @@ def get_EFA_from_VVS(station_id):
     outputFormat = 'json'
 
     url = 'http://www2.vvs.de/vvs/widget/XML_DM_REQUEST?'
-    url += 'zocationServerActive=%d' % zocationServerActive
-    url += '&lsShowTrainsExplicit%d' % lsShowTrainsExplicit
-    url += '&stateless=%d' % stateless
-    url += '&language=%s' % language
-    url += '&SpEncId=%d' % SpEncId
-    url += '&anySigWhenPerfectNoOtherMatches=%d'\
-        % anySigWhenPerfectNoOtherMatches
-    url += '&limit=%d' % limit
-    url += '&depArr=%s' % depArr
-    url += '&type_dm=%s' % type_dm
-    url += '&anyObjFilter_dm=%d' % anyObjFilter_dm
-    url += '&deleteAssignedStops=%d' % deleteAssignedStops
-    url += '&name_dm=%s' % name_dm
-    url += '&mode=%s' % mode
-    url += '&dmLineSelectionAll=%d' % dmLineSelectionAll
-    url += '&itdDateYear=%d' % itdDateYear
-    url += '&itdDateMonth=%d' % itdDateMonth
-    url += '&itdDateDay=%d' % itdDateDay
-    url += '&itdTimeHour=%d' % itdTimeHour
-    url += '&itdTimeMinute=%d' % itdTimeMinute
-    url += '&useRealtime=%d' % useRealtime
-    url += '&outputFormat=%s' % outputFormat
+    url += 'zocationServerActive={:d}'.format(zocationServerActive)
+    url += '&lsShowTrainsExplicit{:d}'.format(lsShowTrainsExplicit)
+    url += '&stateless={:d}'.format(stateless)
+    url += '&language={}'.format(language)
+    url += '&SpEncId={:d}'.format(SpEncId)
+    url += '&anySigWhenPerfectNoOtherMatches={:d}'.format(
+        anySigWhenPerfectNoOtherMatches
+    )
+    url += '&limit={:d}'.format(limit)
+    url += '&depArr={}'.format(depArr)
+    url += '&type_dm={}'.format(type_dm)
+    url += '&anyObjFilter_dm={:d}'.format(anyObjFilter_dm)
+    url += '&deleteAssignedStops={:d}'.format(deleteAssignedStops)
+    url += '&name_dm={}'.format(name_dm)
+    url += '&mode={}'.format(mode)
+    url += '&dmLineSelectionAll={:d}'.format(dmLineSelectionAll)
+    url += '&itdDateYear={:d}'.format(itdDateYear)
+    url += '&itdDateMonth={:d}'.format(itdDateMonth)
+    url += '&itdDateDay={:d}'.format(itdDateDay)
+    url += '&itdTimeHour={:d}'.format(itdTimeHour)
+    url += '&itdTimeMinute={:d}'.format(itdTimeMinute)
+    url += '&useRealtime={:d}'.format(useRealtime)
+    url += '&outputFormat={}'.format(outputFormat)
 
     efa = requests.get(url).json()
     return efa

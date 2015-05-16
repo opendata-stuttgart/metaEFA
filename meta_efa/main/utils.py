@@ -101,8 +101,8 @@ def parse_efa(efa):
         else:
             realDateTime = None
 
-        if "delay" in departure:
-            delay = departure["delay"]
+        if "servingLine" in departure and "delay" in departure["servingLine"]:
+            delay = departure["servingLine"]["delay"]
         else:
             delay = 0
 

@@ -4,7 +4,6 @@ from datetime import datetime
 
 from main.models import Station
 import csv
-import json
 
 
 def populate_stations(path='/opt/code/vvs_data/HaltestellenVVS_simplified_utf8_stationID.csv'):
@@ -49,6 +48,7 @@ def get_EFA_from_VVS(station_id):
     dmLineSelectionAll = 1
     useRealtime = 1
     outputFormat = 'json'
+    coordOutputFormat = 'WGS84[DD.ddddd]'
 
     url = 'http://www2.vvs.de/vvs/widget/XML_DM_REQUEST?'
     url += 'zocationServerActive={:d}'.format(zocationServerActive)
@@ -70,11 +70,11 @@ def get_EFA_from_VVS(station_id):
 
     url += ('&itdDateYear={0:%Y}&itdDateMonth={0:%m}&itdDateDay={0:%d}' +
             '&itdTimeHour={0:%H}&itdTimeMinute={0:%M}').format(
-                datetime.now()
-            )
+                datetime.now())
 
     url += '&useRealtime={:d}'.format(useRealtime)
     url += '&outputFormat={}'.format(outputFormat)
+    url += '&coordOutputFormat={}'.format(coordOutputFormat)
 
     r = requests.get(url)
     r.encoding = 'UTF-8'
@@ -90,6 +90,7 @@ def parse_efa(efa):
 
     for departure in efa["departureList"]:
         stopName = departure["stopName"]
+        latlon = departure['y'] + "," + departure['x']
         number = departure["servingLine"]["number"]
         direction = departure["servingLine"]["direction"]
         if "realDateTime" in departure:
@@ -103,7 +104,8 @@ def parse_efa(efa):
             "stopName": stopName,
             "number": number,
             "direction": direction,
-            "departureTime": realDateTime
+            "departureTime": realDateTime,
+            "stationCoordinates": latlon
         }
 
         parsedDepartures.append(departureObject)

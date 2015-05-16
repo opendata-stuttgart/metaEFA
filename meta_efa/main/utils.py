@@ -90,7 +90,12 @@ def parse_efa(efa):
         stopName = departure["stopName"]
         number = departure["servingLine"]["number"]
         direction = departure["servingLine"]["direction"]
-        realDateTime = departure["realDateTime"]
+        if "realDateTime" in departure:
+            realDateTime = departure["realDateTime"]
+        elif "dateTime" in departure:
+            realDateTime = departure["dateTime"]
+        else:
+            realDateTime = None
 
         departureObject = {
             "stopName": stopName,

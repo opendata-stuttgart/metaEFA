@@ -8,7 +8,6 @@ django-debug-toolbar
 django-extensions
 django-model-utils
 djangorestframework
-git+https://github.com/aexeagmbh/django-statictemplate.git#egg=django-statictemplate
 flower
 gunicorn
 ipython

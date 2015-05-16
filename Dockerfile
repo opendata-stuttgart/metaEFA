@@ -1,7 +1,13 @@
-FROM aexea/django-base
+FROM aexea/aexea-base
 MAINTAINER Aexea Carpentry
 
-WORKDIR meta_efa
-USER root
-ENTRYPOINT ["./start.sh"]
-CMD ["web"]
+ADD requirements.txt /opt/code/requirements.txt
+WORKDIR /opt/code
+RUN pip3 install -Ur requirements.txt
+
+ADD . /opt/code
+WORKDIR /opt/code/meta_efa
+
+USER uid1000
+EXPOSE 8000
+

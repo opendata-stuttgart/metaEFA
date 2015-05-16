@@ -5,7 +5,7 @@ from restapi.views import StationViewSet
 
 
 router = routers.DefaultRouter()
-router.register(r'sensor', StationViewSet)
+router.register(r'station', StationViewSet)
 
 urlpatterns = patterns(
     '',

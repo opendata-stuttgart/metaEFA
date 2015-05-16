@@ -1,8 +1,11 @@
 from rest_framework import routers
 from django.conf.urls import patterns, include, url
 
+from restapi.views import StationViewSet
+
 
 router = routers.DefaultRouter()
+router.register(r'sensor', StationViewSet)
 
 urlpatterns = patterns(
     '',

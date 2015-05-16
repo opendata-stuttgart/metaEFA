@@ -10,9 +10,8 @@ urlpatterns = patterns(
     '',
     url(r'^$', RedirectView.as_view(url='/api/v1/', permanent=False)),
 
-    # url(r'^meta_efa/', include('meta_efa.foo.urls')),
-
     url(r'^api/', include('restapi.urls')),
+    url(r'^docs/', include('rest_framework_swagger.urls')),
     url(r'^admin/', include(admin.site.urls)),
 ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

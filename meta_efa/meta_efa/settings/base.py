@@ -34,7 +34,6 @@ TEMPLATE_DEBUG = DEBUG
 # ######### MANAGER CONFIGURATION
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#admins
 ADMINS = (
-    ('AX IT Services', 'it-services@aexea.de'),
 )
 # ######### END MANAGER CONFIGURATION
 
@@ -139,6 +138,7 @@ TEMPLATE_DIRS = (
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#middleware-classes
 MIDDLEWARE_CLASSES = (
     # Default Django middleware.
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -173,6 +173,7 @@ DJANGO_APPS = (
     # 'django.contrib.admindocs',
     'django_extensions',
     'rest_framework',
+    'rest_framework_swagger',
 )
 
 # Apps specific for this project go here.
@@ -237,3 +238,21 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 100,
 }
+
+# ######### CORS Headers https://github.com/ottoyiu/django-cors-headers/#configuration
+CORS_ORIGIN_WHITELIST = [
+    'example.org',
+]
+CORS_ALLOW_HEADERS = [
+    'x-requested-with',
+    'content-type',
+    'accept',
+    'origin',
+    'authorization',
+    'x-csrftoken',
+    'ember',
+    'content-type',
+]
+CORS_ALLOW_CREDENTIALS = True
+CORS_REPLACE_HTTPS_REFERER = True
+# ######### End CORS Headers

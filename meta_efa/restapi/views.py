@@ -11,7 +11,7 @@ class StationViewSet(viewsets.ModelViewSet):
     queryset = Station.objects.all()
     serializer_class = StationSerializer
     filter_backends = (filters.SearchFilter,)
-    search_fields = ('full_name',)
+    search_fields = ('name',)
 
     @detail_route()
     def departures(self, request, **kwargs):

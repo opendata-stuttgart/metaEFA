@@ -80,6 +80,9 @@ def get_EFA_from_VVS(station_id):
 
 def parse_efa(efa):
     parsedDepartures = []
+
+    if not efa["departureList"]:
+        return parsedDepartures
     
     for departure in efa["departureList"]:
         stopName = departure["stopName"]

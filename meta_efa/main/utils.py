@@ -93,6 +93,7 @@ def parse_efa(efa):
         latlon = departure['y'] + "," + departure['x']
         number = departure["servingLine"]["number"]
         direction = departure["servingLine"]["direction"]
+
         if "realDateTime" in departure:
             realDateTime = departure["realDateTime"]
         elif "dateTime" in departure:
@@ -100,11 +101,17 @@ def parse_efa(efa):
         else:
             realDateTime = None
 
+        if "delay" in departure:
+            delay = departure["delay"]
+        else:
+            delay = 0
+
         departureObject = {
             "stopName": stopName,
             "number": number,
             "direction": direction,
             "departureTime": realDateTime,
+            "delay": delay,
             "stationCoordinates": latlon
         }
 

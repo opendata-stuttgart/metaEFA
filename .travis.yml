@@ -8,4 +8,4 @@ install:
   - pip install pep8 --use-mirrors
   - pip install -q Django==$DJANGO --use-mirrors
 script:
-  - pep8 --exclude=meta_efa/meta_efa/ meta_efa/
+  - pep8 --exclude=meta_efa/meta_efa/ --exclude=meta_efa/main/migrations/ meta_efa/

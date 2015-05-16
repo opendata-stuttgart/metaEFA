@@ -30,6 +30,13 @@ dc run web shell_plus
 ```
 
 
+To populate DB, get a python shell with DB access (see above), then:
+```
+from main.utils import populate_stations
+populate_stations()
+```
+
+
 After changing something in a model you will need to create migrations:
 ```
 dc run web makemigrations

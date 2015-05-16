@@ -4,10 +4,12 @@ Django<1.9
 django-appconf
 django-braces
 django-celery
+django-cors-headers==1.0.0
 django-debug-toolbar
 django-extensions
 django-model-utils
 djangorestframework
+django-rest-swagger
 flower
 gunicorn
 ipython

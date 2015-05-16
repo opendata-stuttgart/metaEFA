@@ -11,11 +11,10 @@ class StationViewSet(viewsets.ModelViewSet):
     queryset = Station.objects.all()
     serializer_class = StationSerializer
     filter_backends = (filters.SearchFilter,)
-    search_fields = ('full_name',)
+    search_fields = ('name',)
 
     @detail_route()
     def departures(self, request, **kwargs):
         station = self.get_object()
         station_id = station.station_id
         return Response(parse_efa(get_EFA_from_VVS(station_id)))
-        return Response(station_id)

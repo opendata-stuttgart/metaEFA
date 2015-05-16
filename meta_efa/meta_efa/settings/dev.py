@@ -65,10 +65,11 @@ def show_toolbar(request):
     return DEBUG
 # ######### END TOOLBAR CONFIGURATION
 
-BROKER_URL = 'amqp://guest@rabbitmq'
-CELERY_RESULT_BACKEND = 'disabled'
-
 ENVIRONMENT = 'dev'
+
+CORS_ORIGIN_WHITELIST = [
+    'localhost:3000',
+]
 
 try:
     from .local_settings import *

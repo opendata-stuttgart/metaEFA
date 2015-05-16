@@ -14,6 +14,7 @@ flower
 gunicorn
 ipython
 kombu
+opbeat
 psycopg2
 pytest-django
 pytest

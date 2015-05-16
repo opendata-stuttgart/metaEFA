@@ -6,7 +6,7 @@ import csv
 
 def populate_stations(path='/opt/code/vvs_data/HaltestellenVVS_simplified_utf8_stationID.csv'):
     with open(path, 'r') as f:
-        reader = csv.reader(f, delimeter=',')
+        reader = csv.reader(f, delimiter=',')
         # skip first row
         next(reader, None)
         for row in reader:

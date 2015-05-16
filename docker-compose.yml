@@ -1,0 +1,24 @@
+data:
+  image: aexea/aexea-base
+  volumes:
+    - /home/uid1000
+web:
+  build: .
+  user: uid1000
+  entrypoint: ./manage.py
+  command: "runserver 0.0.0.0:8000"
+  environment:
+      PYTHONUNBUFFERED: 0
+  volumes:
+   - .:/opt/code
+  volumes_from:
+   - data
+  ports:
+   - "8000:8000"
+  links:
+   - db:db
+
+db:
+  image: postgres:9.4
+  ports:
+   - "5432:5432"

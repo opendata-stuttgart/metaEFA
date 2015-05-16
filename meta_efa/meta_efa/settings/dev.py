@@ -67,7 +67,7 @@ def show_toolbar(request):
 
 ENVIRONMENT = 'dev'
 
-CORS_ORIGIN_WHITELIST = [
+CORS_ORIGIN_WHITELIST += [
     'localhost:3000',
 ]
 

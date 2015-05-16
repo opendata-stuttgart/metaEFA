@@ -1,4 +1,4 @@
-# meta_efa [![Build Status](https://travis-ci.org/momomorientes/metaEFA.svg)](https://travis-ci.org/momomorientes/metaEFA)
+# meta_efa [![Build Status](https://travis-ci.org/momorientes/metaEFA.svg)](https://travis-ci.org/momorientes/metaEFA)
 
 The easiest way to run the django app is to install Docker and Docker Compose
 ([Instructions](https://docs.docker.com/compose/install/))
@@ -27,6 +27,13 @@ dc up [-d]
 To get a python shell with DB access:
 ```
 dc run web shell_plus
+```
+
+
+To populate DB, get a python shell with DB access (see above), then:
+```
+from main.utils import populate_stations
+populate_stations()
 ```
 
 

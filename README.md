@@ -16,3 +16,9 @@ Then initialize the database:
 dc run web reset_db
 dc run web migrate
 ```
+
+
+To run the app (-d for daemonizing => background):
+```
+dc up [-d]
+```

@@ -22,3 +22,9 @@ To run the app (-d for daemonizing => background):
 ```
 dc up [-d]
 ```
+
+
+To get a python shell with DB access:
+```
+dc run web shell_plus
+```

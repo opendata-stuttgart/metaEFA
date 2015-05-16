@@ -6,3 +6,6 @@ class Station(TimeStampedModel):
     station_id = models.TextField(primary_key=True)
     name = models.TextField()
     full_name = models.TextField()
+
+    class Meta:
+        ordering = ['name']

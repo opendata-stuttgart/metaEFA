@@ -11,3 +11,4 @@ WORKDIR /opt/code/meta_efa
 USER uid1000
 EXPOSE 8000
 
+ENTRYPOINT ['./start.sh']

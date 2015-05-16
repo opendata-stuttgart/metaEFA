@@ -18,4 +18,3 @@ class StationViewSet(viewsets.ModelViewSet):
         station = self.get_object()
         station_id = station.station_id
         return Response(parse_efa(get_EFA_from_VVS(station_id)))
-        return Response(station_id)

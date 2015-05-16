@@ -28,3 +28,10 @@ To get a python shell with DB access:
 ```
 dc run web shell_plus
 ```
+
+
+After changing something in a model you will need to create migrations:
+```
+dc run web makemigrations
+dc run web migrate
+```

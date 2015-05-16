@@ -5,6 +5,9 @@ import csv
 
 
 def populate_stations(path='/opt/code/vvs_data/HaltestellenVVS_simplified_utf8_stationID.csv'):
+    """
+    parse simplified csv, add elements to database
+    """
     with open(path, 'r') as f:
         reader = csv.reader(f, delimiter=',')
         # skip first row

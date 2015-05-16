@@ -241,7 +241,7 @@ CELERY_IGNORE_RESULT = True
 
 # ######### CORS Headers https://github.com/ottoyiu/django-cors-headers/#configuration
 CORS_ORIGIN_WHITELIST = [
-    'momorientes.github.io',
+    'efa.asw.io',
 ]
 CORS_ALLOW_HEADERS = [
     'x-requested-with',

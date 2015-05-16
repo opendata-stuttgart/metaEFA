@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from main.models import Station
 from restapi.serializers import StationSerializer
 from rest_framework import filters
-from main.utils import get_EFA_from_VVS
+from main.utils import get_EFA_from_VVS, parse_efa
 
 
 class StationViewSet(viewsets.ModelViewSet):
@@ -17,6 +17,5 @@ class StationViewSet(viewsets.ModelViewSet):
     def departures(self, request, **kwargs):
         station = self.get_object()
         station_id = station.station_id
-        get_EFA_from_VVS(station_id)
-
+        return Response(parse_efa(get_EFA_from_VVS(station_id)))
         return Response(station_id)

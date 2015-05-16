@@ -3,7 +3,7 @@ import time
 import requests
 
 from main.models import Station
-import csv
+import csv, json
 
 
 def populate_stations(path='/opt/code/vvs_data/HaltestellenVVS_simplified_utf8_stationID.csv'):
@@ -77,6 +77,27 @@ def get_EFA_from_VVS(station_id):
     url += '&itdTimeMinute=%d' % itdTimeMinute
     url += '&useRealtime=%d' % useRealtime
     url += '&outputFormat=%s' % outputFormat
+    url += '&coordOutputFormat=WGS84[DD.ddddd]'
 
     efa = requests.get(url).json()
     return efa
+
+def parse_efa(efa):
+    parsedDepartures = []
+    
+    for departure in efa["departureList"]:
+        stopName = departure["stopName"]
+        number = departure["servingLine"]["number"]
+        direction = departure["servingLine"]["direction"]
+        realDateTime = departure["realDateTime"]
+
+        departureObject = {
+            "stopName" : stopName,
+            "number": number,
+            "direction": direction,
+            "departureTime": realDateTime          
+        }
+
+        parsedDepartures.append(departureObject)
+
+    return parsedDepartures

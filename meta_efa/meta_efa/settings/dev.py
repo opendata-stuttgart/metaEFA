@@ -67,10 +67,6 @@ def show_toolbar(request):
 
 ENVIRONMENT = 'dev'
 
-CORS_ORIGIN_WHITELIST += [
-    'localhost:3000',
-]
-
 try:
     from .local_settings import *
 except ImportError:

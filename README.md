@@ -1,5 +1,12 @@
 # meta_efa [![Build Status](https://travis-ci.org/momorientes/metaEFA.svg)](https://travis-ci.org/momorientes/metaEFA)
 
+## Hosted version
+
+Web Click UI: http://efa.asw.io (Source: https://github.com/momorientes/metaEFA-UI)
+Hosted API version: https://efa-api.asw.io
+
+## Installation/Development
+
 The easiest way to run the django app is to install Docker and Docker Compose
 ([Instructions](https://docs.docker.com/compose/install/))
 

@@ -2,7 +2,7 @@
 
 ## Hosted version
 
-Web Click UI: http://efa.asw.io (Source: https://github.com/momorientes/metaEFA-UI)  
+Web Click UI: http://efa.asw.io (Source: https://github.com/momorientes/metaEFA-UI) - only works in Chrome  
 Hosted API version: https://efa-api.asw.io
 
 ## Installation/Development

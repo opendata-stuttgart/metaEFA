@@ -86,6 +86,3 @@ com_crashlytics_export_strings.xml
 .coverage
 
 .ropeproject/
-*~
-\#*\#
-!.gitignore

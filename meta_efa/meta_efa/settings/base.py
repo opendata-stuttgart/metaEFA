@@ -240,10 +240,9 @@ CELERY_IGNORE_RESULT = True
 # }
 
 # ######### CORS Headers https://github.com/ottoyiu/django-cors-headers/#configuration
-CORS_ORIGIN_WHITELIST = [
-    'efa.asw.io',
-    'localhost:3000',
-]
+# allow all CORS - it's a public API
+CORS_ORIGIN_ALLOW_ALL = False
+
 CORS_ALLOW_HEADERS = [
     'x-requested-with',
     'content-type',

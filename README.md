@@ -5,6 +5,12 @@
 Web Click UI: http://efa.asw.io (Source: https://github.com/momorientes/metaEFA-UI) - only works in Chrome  
 Hosted API version: https://efa-api.asw.io
 
+## usage examples
+
+- https://github.com/shackspace/kiosk_v4/blob/master/vvs.js#L3
+- (add yours here)
+
+
 ## Installation/Development
 
 The easiest way to run the django app is to install Docker and Docker Compose

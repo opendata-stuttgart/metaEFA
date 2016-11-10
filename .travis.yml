@@ -1,11 +1,12 @@
 language: python
 python:
-  - "3.4"
+  - "3.5"
+  - "3.6"
   - "nightly"
 env:
   - DJANGO=1.8
 install:
-  - pip install pep8 --use-mirrors
-  - pip install -q Django==$DJANGO --use-mirrors
+  - pip install pep8
+  - pip install -q Django==$DJANGO
 script:
   - pep8 --exclude=meta_efa/meta_efa/ --exclude=meta_efa/main/migrations/ meta_efa/

@@ -1,4 +1,4 @@
-FROM aexea/aexea-base
+FROM aexea/aexea-base:py3.5
 MAINTAINER Aexea Carpentry
 
 ADD requirements.txt /opt/code/requirements.txt

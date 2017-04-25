@@ -157,7 +157,6 @@ ROOT_URLCONF = '%s.urls' % SITE_NAME
 
 # ######### APP CONFIGURATION
 DJANGO_APPS = (
-    # Default Django apps:
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -165,12 +164,7 @@ DJANGO_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # Useful template tags:
-    # 'django.contrib.humanize',
-
-    # Admin panel and documentation:
     'django.contrib.admin',
-    # 'django.contrib.admindocs',
     'django_extensions',
     'rest_framework',
     'rest_framework_swagger',
@@ -225,7 +219,7 @@ LOGGING = {
 WSGI_APPLICATION = '%s.wsgi.application' % SITE_NAME
 # ######### END WSGI CONFIGURATION
 
-ENVIRONMENT = 'base'
+ENV = 'base'
 
 CELERY_TIMEZONE = 'Europe/Berlin'
 

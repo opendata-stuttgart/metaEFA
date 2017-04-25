@@ -26,3 +26,4 @@ class StationSerializer(AbstractDromedaSerializer):
 
     class Meta:
         model = Station
+        fields = '__all__'

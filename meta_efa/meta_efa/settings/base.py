@@ -241,7 +241,7 @@ CELERY_IGNORE_RESULT = True
 
 # ######### CORS Headers https://github.com/ottoyiu/django-cors-headers/#configuration
 # allow all CORS - it's a public API
-CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ALLOW_HEADERS = [
     'x-requested-with',

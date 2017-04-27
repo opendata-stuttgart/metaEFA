@@ -40,7 +40,7 @@ def get_EFA_from_VVS(station_id):
     SpEncId = 0
     anySigWhenPerfectNoOtherMatches = 1
     # max amount of arrivals to be returned
-    limit = 30
+    limit = 100
     depArr = 'departure'
     type_dm = 'any'
     anyObjFilter_dm = 2

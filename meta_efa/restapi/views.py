@@ -7,7 +7,7 @@ from rest_framework import filters
 from main.utils import get_EFA_from_VVS, parse_efa
 
 
-class StationViewSet(viewsets.ModelViewSet):
+class StationViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Station.objects.all()
     serializer_class = StationSerializer
     filter_backends = (filters.SearchFilter,)

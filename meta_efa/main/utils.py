@@ -103,8 +103,23 @@ def parse_efa(efa):
         else:
             realDateTime = None
 
-        if "servingLine" in departure and "delay" in departure["servingLine"]:
-            delay = departure["servingLine"]["delay"]
+        if "dateTime" in departure and "realDateTime" in departure:
+            dateTimeDatetime = datetime(
+                year=int(departure["dateTime"]["year"]),
+                month=int(departure["dateTime"]["month"]),
+                day=int(departure["dateTime"]["day"]),
+                hour=int(departure["dateTime"]["hour"]),
+                minute=int(departure["dateTime"]["minute"]),
+            )
+            realDateTimeDatetime = datetime(
+                year=int(departure["realDateTime"]["year"]),
+                month=int(departure["realDateTime"]["month"]),
+                day=int(departure["realDateTime"]["day"]),
+                hour=int(departure["realDateTime"]["hour"]),
+                minute=int(departure["realDateTime"]["minute"]),
+            )
+            timeDelta = realDateTimeDatetime - dateTimeDatetime
+            delay = int(timeDelta.total_seconds()/60)
         else:
             delay = 0
 

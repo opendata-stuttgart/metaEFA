@@ -8,6 +8,8 @@ services:
      - ./caddy/Caddyfile:/etc/Caddyfile
      - /opt/caddy:/root/.caddy
      - userhome:/home/uid1000
+    environment:
+      ACME_AGREE=true
     ports:
      - "80:80"
      - "443:443"

@@ -25,7 +25,7 @@ services:
     environment:
         PYTHONUNBUFFERED: 0
         PYTHONDONTWRITEBYTECODE: 1
-        DJANGO_SETTINGS_MODULE: csndhra.settings.prod
+        DJANGO_SETTINGS_MODULE: meta_efa.settings.prod
         POSTGRES_PASSWORD: ${DB_PASS}
     volumes:
      - .:/opt/code

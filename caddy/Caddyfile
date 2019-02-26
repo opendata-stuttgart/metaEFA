@@ -3,6 +3,7 @@ efa-api.asw.io {
 	transparent
     }
 
+    tls letsencrypt@asw.io
     root /opt/public-www
     gzip
 }

@@ -1,0 +1,68 @@
+version: '2.1'
+services:
+  caddy:
+    image: abiosoft/caddy
+    volumes:
+     - /opt/public-www/static:/opt/public-www/static
+     - /opt/public-www/media:/opt/public-www/media
+     - ./caddy/Caddyfile:/etc/Caddyfile
+     - /opt/caddy:/root/.caddy
+     - userhome:/home/uid1000
+    ports:
+     - "80:80"
+     - "443:443"
+    restart: always
+
+  web:
+    build: .
+    entrypoint:
+      - "gunicorn"
+    command:
+      - "meta_efa.wsgi:application"
+      - "--workers=6"
+      - "--log-level=info"
+      - "--bind=unix:/home/uid1000/gunicorn.sock"
+    environment:
+        PYTHONUNBUFFERED: 0
+        PYTHONDONTWRITEBYTECODE: 1
+        DJANGO_SETTINGS_MODULE: csndhra.settings.prod
+        POSTGRES_PASSWORD: ${DB_PASS}
+    volumes:
+     - .:/opt/code
+     - userhome:/home/uid1000
+     - /opt/public-www:/opt/public-www
+    depends_on:
+     - db
+    restart: always
+
+  manage:
+    build: .
+    entrypoint:
+      - "./manage.py"
+    command:
+      - "migrate"
+      - "--no-input"
+    environment:
+        PYTHONUNBUFFERED: 0
+        PYTHONDONTWRITEBYTECODE: 1
+        DJANGO_SETTINGS_MODULE: meta_efa.settings.prod
+    volumes:
+     - .:/opt/code
+     - userhome:/home/uid1000
+     - /opt/public-www:/opt/public-www
+    depends_on:
+     - db
+
+  db:
+    image: postgres:9.6
+    volumes:
+     - dbdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASS}
+    restart: always
+
+volumes:
+  userhome:
+    driver: local
+  dbdata:
+    driver: local

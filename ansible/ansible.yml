@@ -1,0 +1,16 @@
+---
+- hosts: all
+  remote_user: asmaps
+
+  tasks:
+    - name: clone git repo
+      git:
+        repo: ssh://git@github.com/opendata-stuttgart/metaEFA.git
+        dest: /home/asmaps/metaEFA
+        key_file: "/home/asmaps/.ssh/id_ed25519"
+        force: yes
+
+    - name: rebuild dc
+      command: ./update_prod.sh
+      args:
+        chdir: /home/asmaps/metaEFA

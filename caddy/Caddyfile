@@ -1,0 +1,8 @@
+efa-api.asw.io {
+    proxy / unix:/home/uid1000/gunicorn.sock {
+	transparent
+    }
+
+    root /opt/public-www
+    gzip
+}

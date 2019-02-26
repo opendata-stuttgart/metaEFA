@@ -1,3 +1,5 @@
+ansible/ansible.retry
+
 # django settings
 local_settings.py
 
